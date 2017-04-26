@@ -5,6 +5,8 @@ import App from './App'
 import router from './router'
 
 Vue.config.productionTip = false
+const FastClick = require('fastclick')
+FastClick.attach(document.body)
 
 /* eslint-disable no-new */
 new Vue({
