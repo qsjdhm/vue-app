@@ -231,16 +231,9 @@
 
 <script type="text/ecmascript-6">
 
-    import "../lib/mui.min.css";
-    import "../lib/mui.indexedlist.css";
+//    import "../../static/mui/mui.min.css";
+//    import "../../static/mui/mui.indexedlist.css";
 
-
-    //require('../lib/mui.min');
-//    require('../lib/mui.indexedlist.js');
-
-    //import '../lib/mui.min';
-    //import $ from 'jquery';
-    //import { mui } from '../lib/mui.min';
     import { mapGetters, mapState, mapActions } from 'vuex';
 
     export default {
@@ -258,15 +251,13 @@
             //this.$store.commit(SET_ACTIVETABBAR, id);
         },
         mounted: function () {
-//            require('../lib/mui.min.js');
-//            require('../lib/mui.indexedlist.js');
-            //console.info($);
+
             mui.init();
             mui.ready(function() {
                 var header = document.querySelector('header.mui-bar');
                 var list = document.getElementById('list');
                 //calc hieght
-                list.style.height = (document.body.offsetHeight - header.offsetHeight) + 'px';
+                list.style.height = '450px';
                 //create
                 window.indexedList = new mui.IndexedList(list);
             });

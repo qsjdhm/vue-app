@@ -22,6 +22,9 @@ const state  = {
         },
         {
             'id': 2, 'icon': 'fa-bar-chart', 'name': '通讯录', 'path' : '/address'
+        },
+        {
+            'id': 3, 'icon': 'fa-bar-chart', 'name': '设置', 'path' : '/settings'
         }
     ],
     // 当前选中的tabbar

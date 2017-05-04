@@ -1,0 +1,117 @@
+/**
+ *  首页面界面样式
+ */
+
+.settings-list-page {
+	padding: 0;
+	margin: 0;
+    left: 0;
+    right: 0;
+
+    .header {
+        display: -webkit-flex;
+        display: flex;
+        position: relative;
+        background-color: #ef4747;
+        padding-left: 10px;
+
+        span {
+            color: #fff;
+            font-size: 15px;
+            height: 40px;
+            line-height: 40px;
+        }
+
+        .callback {
+            z-index: 1;
+
+            img , span {
+                vertical-align: middle;
+            }
+
+            img {
+                height: 16px;
+                width: 16px;
+                -moz-transform:rotate(180deg);
+                -webkit-transform:rotate(180deg);
+                transform:rotate(180deg);
+                filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+            }
+        }
+
+        .title {
+            position: absolute;
+            left: 0;
+            right: 0;
+            text-align: center;
+        }
+    }
+
+
+    .container {
+        background-color: #F7F7FA;
+        position: absolute;
+        top: 40px;
+        bottom: 0px;
+        left: 0;
+        right: 0;
+
+        .item {
+            height: 50px;
+            line-height: 50px;
+            background-color: #fff;
+            border-bottom: 1px solid #F7F7FA;
+            padding: 0 10px;
+
+            img , span {
+                vertical-align: middle;
+            }
+
+            img {
+                height: 12px;
+                width: 12px;
+            }
+
+            span {
+                font-size: 14px;
+            }
+
+            .arrow {
+                float: right;
+                margin: 19px 0;
+            }
+
+            .tip {
+                position: absolute;
+                right: 25px;
+            }
+        }
+        .item:active {
+            background-color: #dfdfdf;
+        }
+
+        .logout {
+            text-align: center;
+            margin-top: 70px;
+
+            span {
+                color: #ef4747;
+            }
+        }
+    }
+
+
+
+
+    /*div {
+        font-size: 15px;
+        height: 50px;
+        line-height: 50px;
+        padding-left: 10px;
+        background-color: #f2f2f2;
+    }
+    div:active {
+        background-color: #dfdfdf;
+    }*/
+}
+

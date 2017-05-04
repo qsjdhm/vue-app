@@ -1,25 +1,38 @@
 <template>
-    <div class="todo-page">
+    <div class="settings-page">
         <div class="header">
-            <div @click.stop.prevent="openSettings" class="avatar">
-                <img src="../assets/avatar.png"/>
+            <span>云适配移动办公平台</span>
+        </div>
+        <div class="container">
+            <div class="user-info">
+                <div>
+                    <img src="../assets/avatar.png"/>
+                </div>
+                <div>
+                    <span>李静</span>
+                    <span>IOS工程师</span>
+                </div>
             </div>
-            <div class="title">
-                <span>待办列表</span>
+            <div @click.stop.prevent="goSettingsList" class="item">
+                <img src="../assets/u196.png"/>
+                <span>设置</span>
+                <img src="../assets/arrow.png" class="arrow" />
             </div>
-            <div class="tab">
-                <img src="../assets/tab.png"/>
-                <span>4</span>
+            <div class="item">
+                <img src="../assets/u196.png"/>
+                <span>关于Enterplorer</span>
+                <span class="tip">内测版3.4.4</span>
+                <img src="../assets/arrow.png" class="arrow" />
+            </div>
+            <div class="item logout">
+                <span>安全退出</span>
             </div>
         </div>
     </div>
 </template>
 
 <script type="text/ecmascript-6">
-
-
-    import "../less/todo.less";
-    import { TransferDom, Popup } from 'vux';
+    import "../less/settings.less";
 
     import { mapGetters, mapState, mapActions } from 'vuex';
 
@@ -29,14 +42,14 @@
 
     export default {
         directives: {
-            TransferDom
+
         },
         components: {
-            Popup
+
         },
         data: function () {
             return {
-                settingsModel: false
+
             }
         },
         computed: {
@@ -45,14 +58,10 @@
             })
         },
         methods: {
-            openSettings: function () {
-                console.info(44444444444);
-                this.settingsModel = true;
+            goSettingsList: function () {
+                window.location.href = "/#/settingsList/";
             },
-            openSettings1111: function () {
-                console.info(2222);
-                //this.settingsModel = true;
-            },
+
         },
         created: function () {
             let id = this.$route.meta.id;

@@ -1,10 +1,14 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-const framework   = resolve => require(['../views/framework'], resolve);
-const home        = resolve => require(['../views/home'], resolve);
-const todo        = resolve => require(['../views/todo'], resolve);
-const address     = resolve => require(['../views/address'], resolve);
+const framework     = resolve => require(['../views/framework'], resolve);
+const home          = resolve => require(['../views/home'], resolve);
+const todo          = resolve => require(['../views/todo'], resolve);
+const address       = resolve => require(['../views/address'], resolve);
+const settings      = resolve => require(['../views/settings'], resolve);
+
+const settingsList  = resolve => require(['../views/settings/settings-list'], resolve);
+const settingsMsg   = resolve => require(['../views/settings/settings-msg'], resolve);
 
 Vue.use(Router);
 
@@ -32,8 +36,25 @@ export default new Router({
                     path: 'address',
                     name: '通讯录',
                     component: address
+                },
+                {
+                    meta: { id: 3 },
+                    path: 'settings',
+                    name: '设置',
+                    component: settings
                 }
             ]
-        }
+        },
+        {
+            path: '/settingsList',
+            name: '设置列表',
+            component: settingsList,
+
+        },
+        {
+            path: '/settingsList/msg',
+            name: '设置消息',
+            component: settingsMsg
+        },
     ]
 });

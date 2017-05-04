@@ -1,7 +1,7 @@
 <template>
     <div class="home-page">
         <div class="header">
-            <div @click="openSettings" class="avatar">
+            <div @click.stop.prevent="openSettings" class="avatar">
                 <img src="../assets/avatar.png"/>
             </div>
             <div class="title">
@@ -18,17 +18,37 @@
 
         <!-- 设置 -->
         <div v-transfer-dom>
-            <popup v-model="settingsModel" position="left">
-                <div style="width:230px;">
+            <popup v-model="settingsModel" position="left" class="settings-model">
+                <div style="width:230px;" >
+                    <div class="user-info" >
+                        <img @click.stop.prevent="openAvatar" src="../assets/avatar.png" class="avatar" />
+                        <span class="name">李静</span>
+                        <span class="edit">修改</span>
+                    </div>
+                    <div class="collect">
+                        <div @click.stop.prevent="changeCollectList" class="title">
+                            <span>收藏</span>
+                            <img src="../assets/arrow.png" class="arrow" />
+                        </div>
+                        <div v-show="collectShow" class="list">
+                            <span>云适配OA</span>
+                            <span>云适配BPM</span>
+                        </div>
+                    </div>
+                    <div class="about">
+                        <span>关于Enterplorer</span>
+                    </div>
                 </div>
             </popup>
         </div>
+        <!-- 拍照 -->
+        <actionsheet v-model="photographSheet" :menus="photographMenus" @on-click-menu="photographClick" show-cancel></actionsheet>
     </div>
 </template>
 
 <script type="text/ecmascript-6">
     import "../less/home.less";
-    import { TransferDom, Popup } from 'vux'
+    import { TransferDom, Popup, Actionsheet } from 'vux';
 
     import { mapGetters, mapState, mapActions } from 'vuex';
 
@@ -41,11 +61,18 @@
             TransferDom
         },
         components: {
-            Popup
+            Popup,
+            Actionsheet
         },
         data: function () {
             return {
-                settingsModel: false
+                settingsModel: false,
+                photographSheet: false,
+                photographMenus: {
+                    menu1: '拍照',
+                    menu2: '从相册选择'
+                },
+                collectShow: false
             }
         },
         computed: {
@@ -56,12 +83,27 @@
         methods: {
             openSettings: function () {
                 this.settingsModel = true;
-            }
+            },
+            openAvatar: function () {
+                this.photographSheet = true;
+            },
+            photographClick: function (key) {
+                console.log(key)
+            },
+            changeCollectList: function () {
+                if (this.collectShow) {
+                    this.collectShow = false;
+                } else {
+                    this.collectShow = true;
+                }
+            },
         },
         created: function () {
             let id = this.$route.meta.id;
             this.$store.commit(SET_ACTIVETABBAR, id);
         },
+        mounted: function () {
+        }
     }
 </script>
 
