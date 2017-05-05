@@ -183,5 +183,4 @@
 		});
 		return this[0] ? this[0].indexedList : null;
 	};
-
 })(mui, window, document);
