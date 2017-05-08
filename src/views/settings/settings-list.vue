@@ -37,8 +37,7 @@
         },
         methods: {
             goSettings: function () {
-                console.info(11111);
-                window.location.href = "/#/settings/";
+                window.location.href = "#/settings/";
             },
         },
         created: function () {

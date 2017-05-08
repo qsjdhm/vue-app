@@ -59,7 +59,7 @@
         },
         methods: {
             goSettingsList: function () {
-                window.location.href = "/#/settingsList/";
+                window.location.href = "#/settingsList/";
             },
 
         },
