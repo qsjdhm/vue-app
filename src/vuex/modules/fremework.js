@@ -25,6 +25,9 @@ const state  = {
         },
         {
             'id': 3, 'icon': 'fa-bar-chart', 'name': '设置', 'path' : '/settings'
+        },
+        {
+            'id': 4, 'icon': 'fa-bar-chart', 'name': '部门通讯录', 'path' : '/department'
         }
     ],
     // 当前选中的tabbar

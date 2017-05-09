@@ -6,6 +6,7 @@ const home          = resolve => require(['../views/home'], resolve);
 const todo          = resolve => require(['../views/todo'], resolve);
 const address       = resolve => require(['../views/address'], resolve);
 const settings      = resolve => require(['../views/settings'], resolve);
+const department    = resolve => require(['../views/department'], resolve);
 
 const settingsList  = resolve => require(['../views/settings/settings-list'], resolve);
 const settingsMsg   = resolve => require(['../views/settings/settings-msg'], resolve);
@@ -42,6 +43,12 @@ export default new Router({
                     path: 'settings',
                     name: '设置',
                     component: settings
+                },
+                {
+                    meta: { id: 4 },
+                    path: 'department',
+                    name: '部门通讯录',
+                    component: department
                 }
             ]
         },

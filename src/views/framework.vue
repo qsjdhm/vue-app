@@ -17,7 +17,6 @@
 
 <script type="text/ecmascript-6">
 
-    import '../less/framework.less';
 
     import { Tabbar, TabbarItem } from 'vux';
 
@@ -43,6 +42,6 @@
     }
 </script>
 
-<style lang="less" scoped>
-
+<style lang="less" >
+    @import '../less/framework.less';
 </style>

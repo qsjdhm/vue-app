@@ -40,8 +40,17 @@
                 <div class="mui-indexed-list-alert"></div>
                 <div class="mui-indexed-list-inner">
                     <div class="mui-indexed-list-empty-alert">没有数据</div>
-                    <ul class="mui-table-view">
-                        <li data-group="A" class="mui-table-view-divider mui-indexed-list-group">A</li>
+                    <ul id="address_list" class="mui-table-view">
+                        <li v-for="(item, key) in list"
+                            :key="key"
+                            :data-group="item.value"
+
+                            class="mui-table-view-divider mui-indexed-list-group">{{item.value}}</li>
+
+
+
+
+                        <!--<li data-group="A" class="mui-table-view-divider mui-indexed-list-group">A</li>
                         <li data-value="AKU" data-tags="AKeSu" class="mui-table-view-cell mui-indexed-list-item"><div>阿克苏机场</div></li>
                         <li data-value="BPL" data-tags="ALaShanKou" class="mui-table-view-cell mui-indexed-list-item"><div>阿拉山口机场</div></li>
                         <li data-value="AAT" data-tags="ALeTai" class="mui-table-view-cell mui-indexed-list-item"><div>阿勒泰机场</div></li>
@@ -213,6 +222,7 @@
                         <li data-value="ZHY" data-tags="ZhongWeiXiangShan" class="mui-table-view-cell mui-indexed-list-item"><div>中卫香山机场</div></li>
                         <li data-value="HSN" data-tags="ZhouShanZhuJiaJian" class="mui-table-view-cell mui-indexed-list-item"><div>舟山朱家尖机场</div></li>
                         <li data-value="ZUH" data-tags="ZhuHaiSanZao" class="mui-table-view-cell mui-indexed-list-item"><div>珠海三灶机场</div></li>
+                    -->
                     </ul>
                 </div>
             </div>
@@ -227,10 +237,14 @@
 
     import { mapGetters, mapState, mapActions } from 'vuex';
 
+    import {
+        SET_ACTIVETABBAR
+    } from '../vuex/modules/fremework';
+
     export default {
         data: function () {
             return {
-
+                list : []
             }
         },
         computed: {
@@ -238,10 +252,31 @@
             })
         },
         created: function () {
-            //let id = this.$route.meta.id;
-            //this.$store.commit(SET_ACTIVETABBAR, id);
+            let id = this.$route.meta.id;
+            this.$store.commit(SET_ACTIVETABBAR, id);
+        },
+        beforeCreate: function(){
+
         },
         mounted: function () {
+//            let indexList = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+//            for (let i= 0,len=indexList.length; i<len; i++) {
+//                let html = '<li data-group="'+indexList[i]+'" class="mui-table-view-divider mui-indexed-list-group">'+indexList[i]+'</li>';
+//                for(let j=1; j<=100; j++) {
+//                    html += '<li data-value="AKU" data-tags="AKeSu" class="mui-table-view-cell mui-indexed-list-item"><div>'+indexList[i]+'       阿克苏机场'+j+'</div></li>';
+//                }
+//                //console.info(html);
+//                document.getElementById("address_list").innerHTML += html;
+//            }
+
+            let indexList = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+
+            for (let i= 0,len=indexList.length; i<len; i++) {
+                this.list.push({'isIndex':true, 'value':indexList[i]});
+                for(let j=1; j<=50; j++) {
+                    this.list.push({'isIndex':false, 'value':indexList[i]+'   阿克苏机场'+j});
+                }
+            }
 
             mui.init();
             mui.ready(function() {
