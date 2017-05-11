@@ -9,14 +9,69 @@
             <tab-item @on-item-click="onItemClick">同事</tab-item>
         </tab>
         <swiper :height="swiperHeight" v-model="tabIndex" :show-dots="false">
-            <swiper-item >
+            <swiper-item>
                 <div class="tab-swiper vux-center">
-                    常用 Container
+                    <div id='list' class="mui-indexed-list">
+                        <div class="mui-indexed-list-bar">
+                            <a>A</a>
+                            <a>B</a>
+                            <a>C</a>
+                            <a>D</a>
+                            <a>E</a>
+                            <a>F</a>
+                            <a>G</a>
+                            <a>H</a>
+                            <a>I</a>
+                            <a>J</a>
+                            <a>K</a>
+                            <a>L</a>
+                            <a>M</a>
+                            <a>N</a>
+                            <a>O</a>
+                            <a>P</a>
+                            <a>Q</a>
+                            <a>R</a>
+                            <a>S</a>
+                            <a>T</a>
+                            <a>U</a>
+                            <a>V</a>
+                            <a>W</a>
+                            <a>X</a>
+                            <a>Y</a>
+                            <a>Z</a>
+                        </div>
+                        <div class="mui-indexed-list-alert"></div>
+                        <div class="mui-indexed-list-inner">
+                            <div class="mui-indexed-list-empty-alert">没有数据</div>
+                            <ul id="address_list" class="mui-table-view">
+                                <li v-for="(item, key) in list"
+                                    :key="key"
+                                    :data-group="item.value"
+                                    class="mui-table-view-divider mui-indexed-list-group">{{item.value}}</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </swiper-item>
             <swiper-item >
                 <div class="tab-swiper vux-center">
-                    同事 Container
+                    <div class="department-list">
+                        <div @click.stop.prevent="openDepartmentDetails(1)" class="item">
+                            <img  class="avater" src="../assets/avatar.png"/>
+                            <span class="name">北京</span>
+                            <span class="number">117</span>
+                        </div>
+                        <div @click.stop.prevent="openDepartmentDetails(2)" class="item">
+                            <img  class="avater" src="../assets/avatar.png"/>
+                            <span class="name">天津</span>
+                            <span class="number">18</span>
+                        </div>
+                        <div @click.stop.prevent="openDepartmentDetails(3)" class="item">
+                            <img  class="avater" src="../assets/avatar.png"/>
+                            <span class="name">西安</span>
+                            <span class="number">18</span>
+                        </div>
+                    </div>
                 </div>
             </swiper-item>
         </swiper>
@@ -46,6 +101,7 @@
         },
         data: function () {
             return {
+                list : [],
                 tabIndex: 0,  // 通过它吧tab和swiper当前选中的链接起来
                 swiperHeight: '',
                 settingsModel: false
@@ -58,23 +114,43 @@
         },
         methods: {
             onItemClick: function (index) {
-                console.log('on item click:', index)
+                console.info('on item click:' + index)
             },
+            openDepartmentDetails: function (index) {
+                window.location.href = "#/department/"+index;
+            }
         },
         created: function () {
+            console.info('department-----------');
             let id = this.$route.meta.id;
             this.$store.commit(SET_ACTIVETABBAR, id);
         },
         mounted: function () {
-
-            let pageHeight = document.querySelector('.framework-page').offsetHeight-53;
+            let barHeight = document.querySelector('.weui-tabbar').offsetHeight;
+            let pageHeight = document.querySelector('.framework-page').offsetHeight - barHeight;
             let searchHeight = document.querySelector('.search').offsetHeight;
             let tabHeight = document.querySelector('.vux-tab').offsetHeight;
 
-            this.swiperHeight = (pageHeight - searchHeight - tabHeight)/37.5+'rem';
+            this.swiperHeight = (pageHeight - searchHeight - tabHeight)   + 'px';
 
 
-        }
+            let indexList = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+
+            for (let i= 0,len=indexList.length; i<len; i++) {
+                this.list.push({'isIndex':true, 'value':indexList[i]});
+                for(let j=1; j<=5; j++) {
+                    this.list.push({'isIndex':false, 'value':indexList[i]+'   阿克苏机场'+j});
+                }
+            }
+
+            mui.init();
+            mui.ready(function() {
+                console.info(pageHeight - searchHeight - tabHeight);
+                var list = document.getElementById('list');
+                list.style.height = (pageHeight - searchHeight - tabHeight) + 'px';
+                window.indexedList = new mui.IndexedList(list);
+            });
+        },
     }
 </script>
 

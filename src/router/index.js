@@ -11,6 +11,8 @@ const department    = resolve => require(['../views/department'], resolve);
 const settingsList  = resolve => require(['../views/settings/settings-list'], resolve);
 const settingsMsg   = resolve => require(['../views/settings/settings-msg'], resolve);
 
+const departmentDetails = resolve => require(['../views/department/department-details'], resolve);
+
 Vue.use(Router);
 
 export default new Router({
@@ -63,5 +65,12 @@ export default new Router({
             name: '设置消息',
             component: settingsMsg
         },
+        {
+            path: '/department/:detailsId',
+            name: '部门详情',
+            component: departmentDetails
+        },
+
+
     ]
 });

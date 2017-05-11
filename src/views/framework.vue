@@ -1,6 +1,8 @@
 <template>
     <div class="framework-page">
-        <router-view></router-view>
+        <keep-alive>
+            <router-view></router-view>
+        </keep-alive>
         <tabbar v-model="activeTabbar">
             <tabbar-item
                 v-for="(item, key) in tabbarList"

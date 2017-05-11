@@ -1,0 +1,103 @@
+/**
+ *  首页面界面样式
+ */
+
+
+// 引入基础功能类
+@import '../base.less';
+
+.department-details-page {
+	padding: 0;
+	margin: 0;
+    left: 0;
+    right: 0;
+
+    .header {
+        display: -webkit-flex;
+        display: flex;
+        position: relative;
+        background-color: #ef4747;
+        padding-left: 10/@frem;
+
+        span {
+            color: #fff;
+            font-size: 15/@frem;
+            height: 40/@frem;
+            line-height: 40/@frem;
+        }
+
+        .callback {
+            z-index: 1;
+
+            img , span {
+                vertical-align: middle;
+            }
+
+            img {
+                height: 16/@frem;
+                width: 16/@frem;
+                -moz-transform:rotate(180deg);
+                -webkit-transform:rotate(180deg);
+                transform:rotate(180deg);
+                filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+            }
+        }
+        .callback:active {
+            background-color: #EF1714;
+        }
+
+    }
+
+    .department-path {
+        font-size: 15/@frem;
+        height: 40/@frem;
+        line-height: 40/@frem;
+        background-color: #ef4747;
+        padding: 0 15/@frem;;
+
+        span {
+            color: #fff;
+        }
+
+        .department-id {
+            display: none;
+        }
+    }
+
+    .department-list {
+        .item {
+            height: 70 / @frem;
+            line-height: 70 / @frem;
+            background-color: #fff;
+            border-bottom: 1px solid #dfdfdf;
+            padding-left: 10 / @frem;
+
+            .avater {
+                margin-right: 15 / @frem;
+                vertical-align: middle;
+            }
+
+            span {
+                vertical-align: middle;
+                color: #3f3f3f;
+            }
+
+            .name {
+                font-size: 16 / @frem;
+            }
+
+            .number {
+                float: right;
+                margin-right: 15 / @frem;
+                font-size: 14 / @frem;
+            }
+        }
+        .item:active {
+            background-color: #dfdfdf;
+        }
+    }
+
+
+
+}
+

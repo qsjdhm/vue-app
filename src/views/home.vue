@@ -99,6 +99,7 @@
             },
         },
         created: function () {
+            console.info('home-----------');
             let id = this.$route.meta.id;
             this.$store.commit(SET_ACTIVETABBAR, id);
         },

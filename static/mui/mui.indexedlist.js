@@ -51,10 +51,10 @@
 		},
 		caleLayout: function() {
 			var self = this;
-			var withoutSearchHeight = (self.box.offsetHeight - self.el.search.offsetHeight) + 'px';
+			var withoutSearchHeight = self.box.offsetHeight + 'px';
 			self.el.bar.style.height = withoutSearchHeight;
 			self.el.inner.style.height = withoutSearchHeight;
-			var barItemHeight = ((self.el.bar.offsetHeight - 40) / self.el.barItems.length) + 'px';
+			var barItemHeight = ((self.el.bar.offsetHeight ) / self.el.barItems.length) + 'px';
 			self.el.barItems.forEach(function(item) {
 				item.style.height = barItemHeight;
 				item.style.lineHeight = barItemHeight;
@@ -159,13 +159,13 @@
 		},
 		bindSearchEvent: function() {
 			var self = this;
-			self.el.searchInput.addEventListener('input', function() {
-				var keyword = this.value;
-				self.search(keyword);
-			}, false);
-			$(self.el.search).on('tap', classSelector('icon-clear'), function() {
-				self.search('');
-			}, false);
+			//self.el.searchInput.addEventListener('input', function() {
+			//	var keyword = this.value;
+			//	self.search(keyword);
+			//}, false);
+			//$(self.el.search).on('tap', classSelector('icon-clear'), function() {
+			//	self.search('');
+			//}, false);
 		},
 		bindEvent: function() {
 			var self = this;

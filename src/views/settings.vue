@@ -64,6 +64,7 @@
 
         },
         created: function () {
+            console.info('settings-----------');
             let id = this.$route.meta.id;
             this.$store.commit(SET_ACTIVETABBAR, id);
         },

@@ -16,7 +16,7 @@
         padding: 0 15 / @frem;
 
         span {
-            font-size: 20 / @frem;
+            font-size: 18 / @frem;
             color: #fff;
         }
 
@@ -30,16 +30,52 @@
 
     .vux-tab {
         background-color: #ef4747;
-        box-shadow: 0 3px 3px #d0d0d0;
+        box-shadow: 0 5px 5px #d0d0d0;
+        z-index: 1;
 
         .vux-tab-item {
             background: #ef4747;
-            font-size: 18 / @frem;
+            font-size: 16 / @frem;
         }
     }
 
     .vux-swiper-item {
         background-color: #f7f7f7;
+
+        .department-list {
+
+            .item {
+                height: 70 / @frem;
+                line-height: 70 / @frem;
+                background-color: #fff;
+                border-bottom: 1px solid #dfdfdf;
+                padding-left: 10 / @frem;
+
+                .avater {
+                    margin-right: 15 / @frem;
+                    vertical-align: middle;
+                }
+
+                span {
+                    vertical-align: middle;
+                    color: #3f3f3f;
+                }
+
+                .name {
+                    font-size: 16 / @frem;
+                }
+
+                .number {
+                    float: right;
+                    margin-right: 15 / @frem;
+                    font-size: 14 / @frem;
+                }
+            }
+            .item:active {
+                background-color: #dfdfdf;
+            }
+
+        }
     }
 
 
